@@ -46,7 +46,7 @@ input_data = {
 
 # Encode Geography
 geo_encoded = onehot_encoder_geo.transform([[geography]])
-geo_encoded_df = pd.DataFrame(geo_encoded.toarray(), columns=onehot_encoder_geo.get_feature_names_out(['Geography']))
+geo_encoded_df = pd.DataFrame(geo_encoded, columns=onehot_encoder_geo.get_feature_names_out(['Geography']))
 input_df = pd.DataFrame([input_data])
 final_input = pd.concat([input_df.reset_index(drop=True), geo_encoded_df.reset_index(drop=True)], axis=1)
 
